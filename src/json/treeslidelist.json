@@ -1,0 +1,79 @@
+[
+  {
+    "path": "/index/home",
+    "icon": "el-icon-s-home",
+    "title": "后台首页",
+    "role": [
+      "super",
+      "normal"
+    ]
+  },
+  {
+    "path": "/index/orderManage",
+    "icon": "el-icon-s-order",
+    "title": "订单管理",
+    "role": ["super", "normal"]
+  },
+  {
+    "path": "/index/shopManage",
+    "icon": "el-icon-s-shop",
+    "title": "店铺管理",
+    "role": ["super"]
+  },
+  {
+    "index": "shops",
+    "icon": "el-icon-s-goods",
+    "title": "商品管理",
+    "role": ["super", "normal"],
+    "children": [
+      {
+        "path": "/index/goodsList",
+        "title": "商品列表"
+      },
+      {
+        "path": "/index/goodsAdd",
+        "title": "商品添加"
+      },
+      {
+        "path": "/index/goodsType",
+        "title": "商品分类"
+      }
+    ]
+  },
+  {
+    "index": "acount",
+    "icon": "el-icon-user-solid",
+    "title": "账号管理",
+    "role": ["super"],
+    "children": [
+      {
+        "path": "/index/userList",
+        "title": "账号列表"
+      },
+      {
+        "path": "/index/addUser",
+        "title": "添加账号"
+      },
+      {
+        "path": "/index/editPwd",
+        "title": "修改密码"
+      }
+    ]
+  },
+  {
+    "index": "statistics",
+    "icon": "el-icon-s-data",
+    "title": "销售统计",
+    "role": ["super"],
+    "children": [
+      {
+        "path": "/index/goodsAnalysis",
+        "title": "商品统计"
+      },
+      {
+        "path": "/index/orderAnalysis",
+        "title": "订单统计"
+      }
+    ]
+  }
+]
