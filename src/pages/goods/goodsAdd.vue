@@ -21,7 +21,7 @@
         <el-form-item label="商品图片">
             <el-upload
             class="avatar-uploader"
-            action="http://127.0.0.1:5000/goods/goods_img_upload"
+            :action="this.server + '/goods/goods_img_upload'"
             :show-file-list="false"
             :accept="imgType"
             :on-success="handleAvatarSuccess"
@@ -42,10 +42,12 @@
 </template>
 
 <script>
+import { server } from '@/servers/servers';
 import { API_addGoods, API_categories, API_goodsImgUpload} from "@/api/apis";
   export default {
     data() {
       return {
+        server,
         addGoodsForm: {
           name: "",
           category: [],
@@ -67,18 +69,18 @@ import { API_addGoods, API_categories, API_goodsImgUpload} from "@/api/apis";
       categories(){
         API_categories().then(res=>{
           this.addGoodsForm.category = res.data.categories;
-          console.log(res.data.categories)
+          // console.log(res.data.categories)
         })
       },
       // 商品图片上传
       handleAvatarSuccess(res, file) {
         if(this.avatarUploadStatus){
           this.imageUrl = URL.createObjectURL(file.raw);
-          console.log(this.imageUrl)
+          // console.log(this.imageUrl)
           let params = {file: this.imageUrl}
           API_goodsImgUpload(params).then(res=>{
             this.returnImageUrl = res.data.imgUrl;
-            console.log(this.returnImageUrl)
+            // console.log(this.returnImageUrl)
           })
         }else{
           return;
@@ -98,8 +100,8 @@ import { API_addGoods, API_categories, API_goodsImgUpload} from "@/api/apis";
       // 商品添加
       addGoods() {
         let params = { name: this.addGoodsForm.name, category: this.addGoodsForm.selectValue, price: this.addGoodsForm.price, imgUrl: this.returnImageUrl, goodsDesc: this.addGoodsForm.goodsDesc};
-        console.log(params)
-        console.log(params.imgUrl)
+        // console.log(params)
+        // console.log(params.imgUrl)
         API_addGoods(params).then(res=>{
            if(res.data.code == 0){
             this.$message({

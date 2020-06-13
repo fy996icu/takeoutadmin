@@ -1,5 +1,6 @@
+import { server } from '@/servers/servers';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.baseURL = server;
 
 // 用户登录
 export const API_login = params => axios.post('/users/checkLogin', params);

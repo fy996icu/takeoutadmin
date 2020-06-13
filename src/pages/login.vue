@@ -8,17 +8,20 @@
         <img src="../assets/images/login/login-bg-02.png">
       </div>
       <div class="login-form">
-        <h1 class="login-title">欢迎使用源码外卖平台</h1>
+        <div class="login-logo">
+          <img src="../assets/logo.png">
+        </div>
+        <!-- <h1 class="login-title">欢迎使用腾鸟外卖商家平台</h1> -->
         <el-card class="box-card">
           <div class="text item">
-            <h2 class="small-title">登录</h2>
+            <h2 class="small-title">欢迎使用腾鸟外卖商家平台</h2>
             <div class="from-wrap">
               <el-form :model="loginForm" status-icon ref="loginForm" :rules="rules">
               <el-form-item prop="userName">
                 <el-input type="text" v-model="loginForm.userName" autocomplete="off" prefix-icon="el-icon-user" placeholder="请输入用户名"></el-input>
               </el-form-item>
               <el-form-item prop="checkPass">
-                <el-input type="password" @keyup.enter.native="userLogin('loginForm')" v-model="loginForm.checkPass" autocomplete="off" prefix-icon="el-icon-lock" suffix-icon="el-icon-date" placeholder="请输入密码"></el-input>
+                <el-input type="password" @keyup.enter.native="userLogin('loginForm')" v-model="loginForm.checkPass" autocomplete="off" prefix-icon="el-icon-lock" placeholder="请输入密码"></el-input>
               </el-form-item>
               <el-form-item>
                 <el-button type="primary" @click="userLogin('loginForm')" class="submit-btn">登录</el-button>
@@ -29,7 +32,7 @@
         </el-card>
       </div>
       <div class="login-footer">
-        <p>©2020 Baidu 使用百度前必读    增值电信业务经营许可证：B1.B2-20100266</p>
+        <p>©2020 tengniao 使用腾鸟前必读    增值电信业务经营许可证：B1.B2-20100266</p>
         <p>京ICP证030173号    隐私政策</p>
       </div>
     </div>
@@ -147,18 +150,27 @@
       left: 50%;
       width: 430px;
       margin-left: -215px;
-      margin-top: -185px;
+      margin-top: -220px;
       // transform: translate(-50%,-50%);
+      .login-logo{
+        text-align: center;
+        margin-bottom: 10px;
+        img{
+          width: 70px;
+        }
+      }
       .login-title{
-        color: #409EFF;
+        display: none;
+        color: $theme;
         text-align: center;
         margin-bottom: 40px;
         margin-top: 0;
       }
       .small-title{
-        color: #409EFF;
+        color: $theme;
         font-size: 20px;
         text-align: center;
+        padding: 10px 0;
       }
       .from-wrap{
         margin-top: 20px;

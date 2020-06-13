@@ -2,6 +2,12 @@
 
 > A Vue.js project
 
+[项目演示地址](http://120.25.25.180/)
+
+默认账号：admin
+
+默认密码：123456
+
 ## Build Setup
 
 ``` bash
@@ -26,5 +32,10 @@ npm run e2e
 # run all tests
 npm test
 ```
+
+## 注意事项
+基于nodejs x11.5.0
+
+该项目后台数据基于项目[sell-serve](http://www.baidu.com)
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

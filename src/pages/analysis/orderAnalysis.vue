@@ -96,7 +96,7 @@
         // console.log(orderTime)
         // console.log(orderAmount)
         option = {
-          color: ['#409EFF', '#F56C6C', '#E6A23C'],
+          color: ['#4D5CAE', '#F56C6C', '#E6A23C'],
           tooltip: {
             trigger: 'axis',
             axisPointer: {

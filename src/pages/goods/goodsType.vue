@@ -17,7 +17,7 @@
         </el-table-column>
         <el-table-column prop="state" label="是否启用">
           <template slot-scope="scope">
-            <el-switch v-model="scope.row.state" :disabled="scope.row.enable" active-color="#13ce66" inactive-color="#DCDFE6">
+            <el-switch v-model="scope.row.state" :disabled="scope.row.enable" active-color="#4D5CAE" inactive-color="#DCDFE6">
             </el-switch>
           </template>
         </el-table-column>
@@ -52,7 +52,7 @@
     </el-form-item>
     <el-form-item label="是否启用" :label-width="formLabelWidth">
       <template>
-        <el-switch v-model="addGoodsTypeForm.addenable" active-color="#13ce66" inactive-color="#DCDFE6">
+        <el-switch v-model="addGoodsTypeForm.addenable" active-color="#4D5CAE" inactive-color="#DCDFE6">
         </el-switch>
       </template>
     </el-form-item>

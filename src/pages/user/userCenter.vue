@@ -19,7 +19,7 @@
     <el-dialog title="修改头像" :visible.sync="dialogFormVisible" center width="360px">
       <el-upload
         class="avatar-uploader"
-        action="http://127.0.0.1:5000/users/avatar_upload"
+        :action="this.server + '/users/avatar_upload'"
         :show-file-list="false"
         :accept="imgType"
         :on-success="handleAvatarSuccess"
@@ -36,10 +36,12 @@
 </template>
 
 <script>
+import { server } from '@/servers/servers';
 import {API_accountinfo, API_avatarUpload, API_avataredit} from '@/api/apis';
   export default {
     data(){
       return {
+        server,
         adminId: '',
         adminAccount: '',
         adminGroup: '',

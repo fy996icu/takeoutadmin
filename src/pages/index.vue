@@ -3,45 +3,48 @@
     <div :style="{width: navWidth + 'px'}" class="admin-top-nav sidebar-log">
       <div class="admin-logo">
         <img src="../assets/logo.png" class="logo" />
-        <span class="logo-name" v-show="!isCollapse">源码外卖平台</span>
+        <span class="logo-name" v-show="!isCollapse">腾鸟商家平台</span>
       </div>
     </div>
     <el-container>
       <el-aside :style="{width: navWidth + 'px'}">
-        <div class="admin-sidebar-nav">
-          <el-row class="tac">
-            <el-col :span="24">
-              <el-menu
-                :collapse="isCollapse"
-                :default-active="defaultActive"
-                :unique-opened="true"
-                router
-                class="el-menu-vertical-demo"
-              >
-                <template v-for="(item,subscript) in newtreeslidelist">
-                  <el-menu-item v-if="!item.children" :index="item.path" :key="subscript">
-                    <i :class="item.icon"></i>
-                    <span slot="title">{{item.title}}</span>
-                  </el-menu-item>
-                  <el-submenu v-else :index="item.index" :key="subscript">
-                    <template slot="title">
+         <el-scrollbar style="height: 100%;overflow-x: hidden;">
+        <div class="admin-sidebar-nav" :style="{width: navWidth + 'px'}">
+            <el-row class="tac">
+              <el-col :span="24">
+                <el-menu
+                  :collapse="isCollapse"
+                  :default-active="defaultActive"
+                  :unique-opened="true"
+                  router
+                  class="el-menu-vertical-demo"
+                >
+                  <template v-for="(item,subscript) in newtreeslidelist">
+                    <el-menu-item v-if="!item.children" :index="item.path" :key="subscript">
                       <i :class="item.icon"></i>
-                      <span>{{item.title}}</span>
-                    </template>
-                    <el-menu-item-group>
-                      <el-menu-item
-                        v-for="(childItem, childId) in item.children"
-                        :key="childId"
-                        :index="childItem.path"
-                      >{{childItem.title}}</el-menu-item>
-                    </el-menu-item-group>
-                  </el-submenu>
-                </template>
-              </el-menu>
-            </el-col>
-          </el-row>
-        </div>
-      </el-aside>
+                      <span slot="title">{{item.title}}</span>
+                    </el-menu-item>
+                    <el-submenu v-else :index="item.index" :key="subscript">
+                      <template slot="title">
+                        <i :class="item.icon"></i>
+                        <span>{{item.title}}</span>
+                      </template>
+                      <el-menu-item-group>
+                        <el-menu-item
+                          v-for="(childItem, childId) in item.children"
+                          :key="childId"
+                          :index="childItem.path"
+                        >{{childItem.title}}</el-menu-item>
+                      </el-menu-item-group>
+                    </el-submenu>
+                  </template>
+                </el-menu>
+              </el-col>
+            </el-row>
+          </div>
+        </el-scrollbar>
+          
+        </el-aside>
       <el-container>
         <el-header>
           <div class="admin-top-nav">
@@ -65,7 +68,7 @@
               <el-dropdown class="mr10" trigger="click" @command="loginOut">
                 <span class="el-dropdown-link">
                   {{account}}
-                  <i class="el-icon-arrow-down el-icon--right"></i>
+                  <i class="el-icon-caret-bottom el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
                   <el-dropdown-item command="2">个人中心</el-dropdown-item>
@@ -220,14 +223,17 @@ $width: 220px;
       background: #fff;
       overflow-x: hidden;
       transition: width 0.3s;
+      /deep/ .el-scrollbar__wrap{
+        overflow-x: hidden;
+      }
     }
     .el-header {
-      background: #fff;
-      border-bottom: 1px solid #eee;
+      background: $theme;
+      border-bottom: 1px solid $theme;
     }
     .el-main {
       padding: 0;
-      background: #f6f6f6;
+      background: #F6F7FB;
     }
   }
 }
@@ -237,7 +243,9 @@ $width: 220px;
   box-sizing: border-box;
   &.sidebar-log {
     position: absolute;
-    border-bottom: 1px solid #eee;
+    background: $theme;
+    border-bottom: 1px solid $theme;
+    transition: width 0.3s;
   }
   .admin-logo {
     float: left;
@@ -251,6 +259,7 @@ $width: 220px;
       vertical-align: middle;
     }
     .logo-name {
+      color: #fff;
       font-size: 18px;
       font-weight: bold;
       line-height: 26px;
@@ -259,7 +268,7 @@ $width: 220px;
   }
   .collapse-btn {
     float: left;
-    margin-top: 9px;
+    margin-top: 12px;
     margin-right: 20px;
   }
   .breadcrumb {
@@ -294,17 +303,49 @@ $width: 220px;
 }
 .el-dropdown-link {
   cursor: pointer;
-  color: #409eff;
+  color: #fff;
 }
 .el-icon-arrow-down {
   font-size: 12px;
 }
 
 .el-menu-item{
-  transition: none;
+  color: #78828a;
+  // transition: none;
+  i{
+    color: inherit;
+  }
+}
+
+.el-submenu{
+  color: #78828a;
+  /deep/ .el-submenu__title{
+    color: inherit;
+  }
+  i{
+    color: inherit;
+  }
 }
 .el-menu-item.is-active{
-  border-right: 3px solid #409eff;
-  background: #ECF5FF;
+  color: $theme;
+  border-right: 4px solid $theme;
+  background: rgba(77, 92, 174, 0.06);
 }
+
+.el-header{
+  /deep/ .el-radio-button__inner{
+    color: #fff;
+    font-size: 24px;
+    padding: 5px 10px;
+    border-color: transparent !important;
+    background: transparent;
+  }
+  /deep/ .el-breadcrumb__inner.is-link, 
+  /deep/ .el-breadcrumb__inner a,
+  /deep/ .el-breadcrumb__item:last-child .el-breadcrumb__inner{
+    color: #fff;
+  }
+}
+
+
 </style>

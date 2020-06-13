@@ -5,8 +5,7 @@ import App from './App'
 import ElementUI from 'element-ui'
 import echarts from 'echarts'
 import './assets/styles/css/normalize.css'
-import 'element-ui/lib/theme-chalk/index.css'
-import './assets/styles/sass/common.scss'
+import '../theme/index.css'
 import router from './router'
 
 Vue.config.productionTip = false

@@ -14,7 +14,7 @@
         <el-form-item label="店铺头像">
           <el-upload
             class="avatar-uploader"
-            action="http://localhost:5000/shop/upload"
+            :action="this.uploadAPI"
             :accept="imgType"
             :show-file-list="false"
             :on-success="handleAvatarSuccess"
@@ -25,7 +25,7 @@
         </el-form-item>
         <el-form-item label="店铺图片">
           <el-upload
-            action="http://localhost:5000/shop/upload"
+            :action="this.uploadAPI"
             :accept="imgType"
             :on-preview="handlePreview"
             :on-remove="handleRemove"
@@ -87,11 +87,14 @@
 </template>
 
 <script>
+import { server } from '@/servers/servers';
 import {API_getShopInfo, API_shopInfoEdit} from '@/api/apis';
   export default {
     data() {
       return {
-        piclinkheader: "http://127.0.0.1:5000/upload/shop/",
+        server,
+        uploadAPI: server + '/shop/upload',
+        piclinkheader: server + '/upload/shop/',
         pics: [],
         curpics:'',
         imgparams: [], // 上传的图片列表

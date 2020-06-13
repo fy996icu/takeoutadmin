@@ -104,7 +104,7 @@
         <el-form-item label="商品图片">
           <el-upload
             class="avatar-uploader"
-            action="http://127.0.0.1:5000/goods/goods_img_upload"
+            :action="this.server + '/goods/goods_img_upload'"
             :show-file-list="false"
             :accept="imgType"
             :on-success="handleAvatarSuccess"
@@ -126,23 +126,19 @@
   </el-card>
 </template>
 <script>
-import {
-  API_getGoodsList,
-  API_goodsImgUpload,
-  API_editGoods,
-  API_categories,
-  API_delGoods
-} from "@/api/apis";
+import { server } from '@/servers/servers';
+import { API_getGoodsList, API_goodsImgUpload, API_editGoods, API_categories, API_delGoods } from "@/api/apis";
 export default {
   data() {
     return {
+      server,
       fit: "cover",
       allGoodsListData: [],
       currentPage: 1,
       pageSize: 5,
       pageSizes: [5, 10, 15, 20],
       total: 0,
-      piclinkheader: "http://127.0.0.1:5000/upload/imgs/goods_img/",
+      piclinkheader: server + "/upload/imgs/goods_img/",
       loading: true,
       editDialogForm: false,
       formLabelWidth: "70px",
