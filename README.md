@@ -34,7 +34,7 @@ npm test
 ```
 
 ## 注意事项
-基于nodejs x11.5.0
+基于nodejs x11.15.0
 
 该项目后台数据基于项目[sell-serve](https://github.com/fanyongsir/sell-serve)
 
